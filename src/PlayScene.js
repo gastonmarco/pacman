@@ -302,13 +302,11 @@ PlayScene.prototype.getCurrentLevel = function () {
 };
 
 PlayScene.prototype.nextLevel = function () {
-  
   this._currentLevel++;
   if ((this._currentLevel - 1) >= this._maps.length) {
+    window.close();
     this._game.setScene(new StartupScene(this._game));
-    localStorage.setItem('easterEggPacman', true); 
-    confirm('Congratulations you have won an ID90 easter egg')
-    return;  
+    return;
   }
   this.loadMap(this._getMapForCurrentLevel());
   this._readyMessage.show();
@@ -416,7 +414,7 @@ PlayScene.prototype._getDefaultMaps = function () {
     '#.######.#.#####.#.######.#',
     '#........#...#...#........#',
     '########.### # ###.########',
-    '       #.# 2 1 2 #.#       ',
+    '       #.#   1   #.#       ',
     '########.# ##-## #.########',
     '        .  #234#  .        ',
     '########.# ##### #.########',
