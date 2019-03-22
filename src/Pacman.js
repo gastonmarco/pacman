@@ -209,7 +209,8 @@ Pacman.prototype._resetDeathFrame = function () {
 
 Pacman.prototype.diesAnimationCompleted = function () {
   if (this._livesCount == 0) {
-      this._game.setScene(new StartupScene(this._game));
+    window.close();
+    this._game.setScene(new StartupScene(this._game));
     return;
   }
   this.setStrategy(new PacmanPlaySceneStrategy(this, this._scene));
